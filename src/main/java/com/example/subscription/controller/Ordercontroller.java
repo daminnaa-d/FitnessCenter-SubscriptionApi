@@ -36,6 +36,7 @@ public class Ordercontroller {
 
     @PostMapping("")
     @ApiOperation(value = "Method to create a new order", response = List.class)
+    @CrossOrigin(origins = "http://localhost:4200")
     public void createOrder (@RequestBody Order order){
         orderService.createOrder(order);
         this.producer.orderNotify(order);
